@@ -8,6 +8,8 @@ import { WatchVideoComponent } from './components/pages/watch-video/watch-video.
 import { InformationsComponent } from './components/pages/informations/informations.component';
 import { AppRoutingComponent } from './app-routing.module';
 import { CategoriesComponent } from './components/pages/categories/categories.component';
+import { SearchPageComponent } from './components/pages/search-page/search-page.component';
+import { SearchComponent } from './components/layout/search/search.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { CategoriesComponent } from './components/pages/categories/categories.co
     WatchVideoComponent,
     InformationsComponent,
     CategoriesComponent,
+    SearchPageComponent,
+    SearchComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingComponent],
   providers: [],
