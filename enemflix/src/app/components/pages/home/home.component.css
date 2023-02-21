@@ -1,0 +1,5 @@
+.videos-container .video img {
+  height: 250px;
+  max-width: 250px;
+  clip-path: polygon(0 13%, 100% 13%, 100% 87%, 0% 87%);
+}

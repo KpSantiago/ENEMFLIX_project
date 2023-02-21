@@ -1,28 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
+import { Categories } from 'src/app/interfaces/Categories';
 
 import { SearchService } from 'src/app/services/search/search.service';
 
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
-  styleUrls: ['./search-page.component.css']
+  styleUrls: ['./search-page.component.css'],
 })
 export class SearchPageComponent implements OnInit {
+  videos!: Categories[];
 
-  constructor(private ServiceSearch: SearchService, private route: ActivatedRoute) { }
+  constructor(
+    private ServiceSearch: SearchService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    const search = this.route.snapshot.paramMap.get("query");
+    const search = this.route.snapshot.paramMap.get('q');
 
-    this.ServiceSearch.getSearchVideos(search!).subscribe(data => {
+    this.ServiceSearch.getSearchVideos(search!).subscribe((data) => {
       const items = data.items;
 
-      console.log(items)
-      console.log(search)
-    })
+      this.videos = items;
+      console.log(items);
+    });
   }
 
-
-  
+  watchVideo(id: string): void {
+    this.router.navigate([`watch/${id}`]);
+  }
 }

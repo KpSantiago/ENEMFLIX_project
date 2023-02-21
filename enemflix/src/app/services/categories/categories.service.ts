@@ -10,15 +10,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class CategoriesService {
-  private apiKey = 'AIzaSyB2OTUu5NxxAy6mYxVv3TSkMongJq1YjAY';
+  private apiKey = 'AIzaSyDsCWX8NQYQJffzgkI3ljDIz9WYKYWH-VE';
   private baseApiUrl = 'https://www.googleapis.com/youtube/v3/search';
 
-  private queries = `part=snippet&maxResults=50&key=${this.apiKey}`;
+  private queries = `part=snippet&maxResults=300&key=${this.apiKey}`;
 
   constructor(private http: HttpClient) {}
 
   getVideosCategories(query: string): Observable<Response<Categories[]>> {
-    const url = `${this.baseApiUrl}?${this.queries}&q=${query}`;
+    const url = `${this.baseApiUrl}?${this.queries}&q=${query} Enem vestibular`;
 
     return this.http.get<Response<Categories[]>>(url);
   }

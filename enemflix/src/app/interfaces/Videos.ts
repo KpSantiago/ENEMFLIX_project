@@ -1,0 +1,12 @@
+export interface Videos {
+  id: string;
+  player: {
+    embedHtml: any;
+  };
+  snippet: {
+    publishedAt: string;
+    channelId: string;
+    title: string;
+    description: string;
+  };
+}

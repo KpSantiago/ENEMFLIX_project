@@ -1,1 +1,14 @@
-<p>watch-video works!</p>
+<div class="wacthVideoContainer">
+  <div class="videoContainer">
+    <div class="watchContainer" #watchContainer></div>
+  </div>
+  <div class="relationedVideos">
+    <div class="video" *ngFor="let video of relationedVideos">
+      <div class="container" (click)="watchVideo(video.id.videoId!)">
+        <div class="thumb">
+          <img src="{{ video.snippet.thumbnails.high.url }}" alt="thumb" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

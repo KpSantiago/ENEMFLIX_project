@@ -1,0 +1,4 @@
+.relationedVideos .video .thumb img {
+  width: 250px;
+  clip-path: polygon(0 13%, 100% 13%, 100% 87%, 0% 87%);
+}

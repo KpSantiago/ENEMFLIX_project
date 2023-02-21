@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Categories } from 'src/app/interfaces/Categories';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 
 @Component({
@@ -8,21 +9,20 @@ import { CategoriesService } from 'src/app/services/categories/categories.servic
   styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent implements OnInit {
-    
-    constructor(private router: ActivatedRoute, private ServiceCategories: CategoriesService) {}
+  category!: Categories[];
+
+  constructor(
+    private router: ActivatedRoute,
+    private ServiceCategories: CategoriesService
+  ) {}
 
   ngOnInit(): void {
-    const category = this.router.snapshot.paramMap.get('category');
-    
-      this.ServiceCategories.getVideosCategories("Português").subscribe(
-        (data) => {
-          const items = data.items;
-  
-          console.log(items);
-        }
-      );
-    console.log(category);
+    const category = this.router.snapshot.paramMap.get('c');
+
+    this.ServiceCategories.getVideosCategories(category!).subscribe((data) => {
+      const items = data.items;
+
+      this.category = items;
+    });
   }
-
-
 }

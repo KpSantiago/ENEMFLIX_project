@@ -9,13 +9,15 @@ export interface Categories {
     kind: string;
     videoId: string;
   };
-
   snippet: {
+    publishedAt: string;
+    channelId: string;
     title: string;
+    description: string;
     thumbnails: {
       high: Resolutions;
-      medium: Resolutions;
+      standard: Resolutions;
+      maxres: Resolutions;
     };
-    publishTime: string;
   };
 }

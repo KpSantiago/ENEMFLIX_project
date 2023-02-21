@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
@@ -10,6 +11,9 @@ import { AppRoutingComponent } from './app-routing.module';
 import { CategoriesComponent } from './components/pages/categories/categories.component';
 import { SearchPageComponent } from './components/pages/search-page/search-page.component';
 import { SearchComponent } from './components/layout/search/search.component';
+import { SideHeaderComponent } from './components/layout/side-header/side-header.component';
+import { TopHeaderComponent } from './components/layout/top-header/top-header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -20,8 +24,17 @@ import { SearchComponent } from './components/layout/search/search.component';
     CategoriesComponent,
     SearchPageComponent,
     SearchComponent,
+    SideHeaderComponent,
+    TopHeaderComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,1 +1,8 @@
-<p>search works!</p>
+<form class="search-container" (submit)="searchVideos()" [formGroup]="search">
+  <div>
+    <button type="submit" class="searchButton">
+      <img src="../../../../assets/searchIcon.svg" alt="search" />
+    </button>
+    <input type="search" formControlName="query" placeholder="Pesquisar" />
+  </div>
+</form>

@@ -1,2 +1,55 @@
-<p>home works!</p>
-<h2><a routerLink="categories/português">português</a></h2>
+<div class="home-container">
+  <app-side-header></app-side-header>
+  <div class="main">
+    <!-- SLIDE -->
+    <div class="slider"></div>
+    <!-- PLAYLIST  -->
+    <div class="playlists-container">
+      <div class="playlist">
+        <h2>Descomplica</h2>
+        <div class="videos-container" *ngIf="descomplica">
+          <div class="video" *ngFor="let video of descomplica">
+            <div class="container" (click)="watchVideo(video.id.videoId)">
+              <div class="thumb">
+                <img
+                  src="{{ video.snippet.thumbnails.high.url }}"
+                  alt="playlist"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="playlist">
+        <h2>Brasil Escola</h2>
+        <div class="videos-container" *ngIf="brasilEscola">
+          <div class="video" *ngFor="let video of brasilEscola">
+            <div class="container" (click)="watchVideo(video.id.videoId)">
+              <div class="thumb">
+                <img
+                  src="{{ video.snippet.thumbnails.high.url }}"
+                  alt="playlist"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="playlist">
+        <h2>Stoodi</h2>
+        <div class="videos-container" *ngIf="stoodi">
+          <div class="video" *ngFor="let video of stoodi">
+            <div class="container" (click)="watchVideo(video.id.videoId)">
+              <div class="thumb">
+                <img
+                  src="{{ video.snippet.thumbnails.high.url }}"
+                  alt="playlist"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

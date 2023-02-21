@@ -1,1 +1,11 @@
-<p>search-page works!</p>
+<div class="searchVideosContainer">
+  <div class="videosContainer">
+    <div class="video" *ngFor="let video of videos">
+      <div class="contaier" (click)="watchVideo(video.id.videoId)">
+        <div class="thumb">
+          <img src="{{ video.snippet.thumbnails.high.url }}" alt="thumb" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
