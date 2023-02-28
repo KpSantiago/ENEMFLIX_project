@@ -20,42 +20,75 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const descomplicaExists: Categories[] | null = JSON.parse(
+      localStorage.getItem('descomplica') || 'null'
+    );
+
+    const brasilEscolaExists: Categories[] = JSON.parse(
+      localStorage.getItem('brasilEscola') || 'null'
+    );
+
+    const stoodiExists: Categories[] = JSON.parse(
+      localStorage.getItem('stoodi') || 'null'
+    );
+
     // DESCOMPLPICA
-    this.ServicePlaylist.getVideosDescomplica().subscribe((data) => {
-      const items = data.items;
+    if (descomplicaExists == null) {
+      this.ServicePlaylist.getVideosDescomplica().subscribe((data) => {
+        const items = data.items;
 
-      items.map((data) => {
-        data.snippet.publishedAt = new Date(
-          data.snippet.publishedAt
-        ).toLocaleDateString();
+        items.map((data) => {
+          data.snippet.publishedAt = new Date(
+            data.snippet.publishedAt
+          ).toLocaleDateString();
+        });
+
+        localStorage.setItem('descomplica', JSON.stringify(items));
+
+        this.descomplica = items;
       });
+    } else {
+      this.descomplica = descomplicaExists;
+    }
 
-      this.descomplica = items;
-    });
     // BRASIL ESCOLA
-    this.ServicePlaylist.getVideosBrasilEscola().subscribe((data) => {
-      const items = data.items;
+    if (brasilEscolaExists == null) {
+      this.ServicePlaylist.getVideosBrasilEscola().subscribe((data) => {
+        const items = data.items;
 
-      items.map((data) => {
-        data.snippet.publishedAt = new Date(
-          data.snippet.publishedAt
-        ).toLocaleDateString();
+        items.map((data) => {
+          data.snippet.publishedAt = new Date(
+            data.snippet.publishedAt
+          ).toLocaleDateString();
+        });
+
+        localStorage.setItem('brasilEscola', JSON.stringify(items));
+
+        this.brasilEscola = items;
       });
+    } else {
+      this.brasilEscola = brasilEscolaExists;
+    }
 
-      this.brasilEscola = items;
-    });
     // STOODI
-    this.ServicePlaylist.getVideosStoodi().subscribe((data) => {
-      const items = data.items;
+    if (stoodiExists) {
+      this.stoodi = stoodiExists;
+    }
+    if (stoodiExists == null) {
+      this.ServicePlaylist.getVideosStoodi().subscribe((data) => {
+        const items = data.items;
 
-      items.map((data) => {
-        data.snippet.publishedAt = new Date(
-          data.snippet.publishedAt
-        ).toLocaleDateString();
+        items.map((data) => {
+          data.snippet.publishedAt = new Date(
+            data.snippet.publishedAt
+          ).toLocaleDateString();
+        });
+
+        localStorage.setItem('stoodi', JSON.stringify(items));
+
+        this.stoodi = items;
       });
-
-      this.stoodi = items;
-    });
+    }
   }
 
   watchVideo(id: string): void {

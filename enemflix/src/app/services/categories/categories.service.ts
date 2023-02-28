@@ -20,6 +20,7 @@ export class CategoriesService {
   getVideosCategories(query: string): Observable<Response<Categories[]>> {
     const url = `${this.baseApiUrl}?${this.queries}&q=${query} Enem vestibular`;
 
-    return this.http.get<Response<Categories[]>>(url);
+    
+    return this.http.get<Response<Categories[]>>(url);  
   }
 }
