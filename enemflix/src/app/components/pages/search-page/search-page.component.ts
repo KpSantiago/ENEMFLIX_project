@@ -23,12 +23,23 @@ export class SearchPageComponent implements OnInit {
   ngOnInit(): void {
     const search = this.route.snapshot.paramMap.get('q');
 
-    this.ServiceSearch.getSearchVideos(search!).subscribe((data) => {
-      const items = data.items;
+    const searchedVideosExists = JSON.parse(
+      localStorage.getItem('searchedVideos') || 'null'
+    );
 
-      this.videos = items;
-      console.log(items);
-    });
+    if (searchedVideosExists == null) {
+      this.ServiceSearch.getSearchVideos(search!).subscribe((data) => {
+        const items = data.items;
+
+        localStorage.setItem('searchedVideos', JSON.stringify(items));
+
+        this.videos = items;
+
+        console.log(items);
+      });
+    } else {
+      this.videos = searchedVideosExists;
+    }
   }
 
   watchVideo(id: string): void {

@@ -19,5 +19,6 @@ export interface Categories {
       standard: Resolutions;
       maxres: Resolutions;
     };
+    length: number;
   };
 }

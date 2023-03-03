@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { Categories } from 'src/app/interfaces/Categories';
 
 import { PlaylistService } from 'src/app/services/playlist/playlist.service';
@@ -10,6 +11,10 @@ import { PlaylistService } from 'src/app/services/playlist/playlist.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('#descVideo') descVideo!: ElementRef<HTMLDivElement>;
+  @ViewChild('#brVideo') brVideo!: ElementRef<HTMLDivElement>;
+  @ViewChild('#stdVideo') stdVideo!: ElementRef<HTMLDivElement>;
+
   descomplica!: Categories[];
   brasilEscola!: Categories[];
   stoodi!: Categories[];
@@ -45,10 +50,31 @@ export class HomeComponent implements OnInit {
 
         localStorage.setItem('descomplica', JSON.stringify(items));
 
+        items.filter((itm) => {
+          itm.id.videoId == 'aqazAdlFgTY';
+          this.descVideo.nativeElement.innerHTML =
+            itm.snippet.thumbnails.maxres.url;
+          console.log(itm);
+        });
+
         this.descomplica = items;
       });
     } else {
       this.descomplica = descomplicaExists;
+      //  descomplicaExists
+      // .filter((itm) => itm.id.videoId == 'aqazAdlFgTY')
+      // .map(
+      //   (i) =>
+      //     (document.querySelector('.video1')!.innerHTML =
+      //       i.snippet.thumbnails.maxres.url)
+      // );
+
+      const descVideo = this.descomplica
+        .filter((itm) => itm.id.videoId == 'aqazAdlFgTY')
+        .map((i) => i.snippet.thumbnails.maxres.url);
+
+      // document.querySelector('.video1')!.innerHTML = descVideo[0]
+      console.log(descVideo[0]);
     }
 
     // BRASIL ESCOLA

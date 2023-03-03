@@ -14,7 +14,8 @@ import { videosService } from 'src/app/services/videos/videos.service';
   styleUrls: ['./watch-video.component.css'],
 })
 export class WatchVideoComponent implements OnInit {
-  @ViewChild('watchContainer') wacth!: ElementRef<HTMLDivElement>;
+  @ViewChild('watchContainer') watch!: ElementRef<HTMLDivElement>;
+
   titleVideo!: string;
   video!: Videos[];
   relationedVideos!: Categories[];
@@ -31,29 +32,61 @@ export class WatchVideoComponent implements OnInit {
   ngOnInit(): void {
     const id = this.routes.snapshot.paramMap.get('i');
 
-    this.ServiceVideos.getVideo(id!).subscribe((data) => {
-      const items = data.items;
-      this.titleVideo = items[0].snippet.title;
-      this.video = items;
+    const videoExists = JSON.parse(localStorage.getItem('video') || 'null');
 
-      this.wacth.nativeElement.innerHTML = this.video[0].player.embedHtml;
-    });
+    if (videoExists == null) {
+      this.ServiceVideos.getVideo(id!).subscribe((data) => {
+        const items = data.items;
+        this.titleVideo = items[0].snippet.title;
+
+        localStorage.setItem('video', JSON.stringify(items));
+
+        this.video = items;
+
+        this.watch.nativeElement.innerHTML = this.video[0].player.embedHtml;
+      });
+    } else {
+      this.video = videoExists;
+
+      console.log(this.video);
+      // this.wacth.nativeElement.innerHTML = this.video[0].player.embedHtml;
+      document.querySelector('.watchContainer')!.innerHTML =
+        this.video[0].player.embedHtml;
+    }
   }
 
   getRelationedVideos() {
     // RELACIONADOS AO VÍDEO
-    this.ServiceCategories.getVideosCategories(this.titleVideo!).subscribe(
-      (data) => {
-        const items = data.items;
-
-        this.relationedVideos = items;
-      }
+    const relationedVideosExists = JSON.parse(
+      localStorage.getItem('relationedVideos') || 'null'
     );
+
+    if (relationedVideosExists == null) {
+      this.ServiceCategories.getVideosCategories(this.titleVideo!).subscribe(
+        (data) => {
+          const items = data.items;
+
+          localStorage.setItem('relationedVideos', JSON.stringify(items));
+
+          this.relationedVideos = items;
+        }
+      );
+    } else {
+      this.relationedVideos = relationedVideosExists;
+    }
   }
 
   async watchVideo(id: string) {
+    const relationedVideoExists = JSON.parse(
+      localStorage.getItem('relationedVideos') || 'null'
+    );
+
     await this.router.navigate([`watch/${id}`]);
     location.reload();
-    this.getRelationedVideos();
+    if (relationedVideoExists == null) {
+      this.getRelationedVideos();
+    } else {
+      this.relationedVideos = relationedVideoExists;
+    }
   }
 }

@@ -19,10 +19,22 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
     const category = this.router.snapshot.paramMap.get('c');
 
-    this.ServiceCategories.getVideosCategories(category!).subscribe((data) => {
-      const items = data.items;
+    const categoryExists = JSON.parse(
+      localStorage.getItem('category') || 'null'
+    );
 
-      this.category = items;
-    });
+    if (categoryExists == null) {
+      this.ServiceCategories.getVideosCategories(category!).subscribe(
+        (data) => {
+          const items = data.items;
+
+          localStorage.setItem('category', JSON.stringify(items))
+
+          this.category = items;
+        }
+      );
+    } else {
+      this.category = categoryExists;
+    }
   }
 }
