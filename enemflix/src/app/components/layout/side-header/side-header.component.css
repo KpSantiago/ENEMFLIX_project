@@ -1,0 +1,129 @@
+header {
+  background-color: #070707;
+  box-shadow: 2px 0 15px 4px rgba(0, 0, 0, 0.35);
+  width: 230px;
+  height: 100vh;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  z-index: 99;
+}
+
+.logo {
+  margin-top: 20px;
+}
+
+.logo img {
+  height: 30px;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu h4 {
+  color: #fff;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  font-size: 21px;
+}
+
+.menu h4 img {
+  height: 17px;
+  margin-right: 5px;
+}
+
+.menu ul {
+  list-style: none;
+  margin-left: 45px;
+}
+
+.menu ul li + li {
+  margin-top: 14px;
+}
+
+.menu li a {
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.menu li:hover a {
+  color: #fff5;
+}
+
+.informationsBtn {
+  background-color: #0f7;
+  padding: 7.5px 12.5px;
+  border-radius: 20px;
+  transition: all 0.35s;
+}
+
+.informationsBtn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 10px 0.2px #00ff77d9;
+}
+
+.informationsBtn a {
+  color: #000;
+  font-size: 17px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#menuBtn {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  header {
+    width: 0;
+    overflow-y: hidden;
+    white-space: nowrap;
+    transition: all 0.5s;
+  }
+
+  #menuBtn:checked ~ header {
+    width: calc(100% + 100px);
+  }
+
+  .menuHumburguer {
+    width: 30px;
+    margin: 10%;
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    z-index: 999;
+  }
+
+  .menuHumburguer div {
+    background-color: #000;
+    width: 100%;
+    height: 5px;
+  }
+
+  #menuBtn:checked ~ .menuHumburguer div {
+    background-color: transparent;
+    animation: change 0.3s linear forwards;
+    animation-delay: 0.7s;
+  }
+
+  @keyframes change {
+    from {
+      background-color: transparent;
+    }
+    to {
+      background-color: #fff;
+    }
+  }
+
+  .menuHumburguer div + div {
+    margin-top: 5px;
+  }
+}

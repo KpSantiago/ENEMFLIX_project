@@ -1,12 +1,28 @@
-<div class="wacthVideoContainer">
-  <div class="videoContainer">
-    <div class="watchContainer" #watchContainer></div>
-  </div>
-  <div class="relationedVideos">
-    <div class="video" *ngFor="let video of relationedVideos">
-      <div class="container" (click)="watchVideo(video.id.videoId!)">
-        <div class="thumb">
-          <img src="{{ video.snippet.thumbnails.high.url }}" alt="thumb" />
+<div class="parentContainer">
+  <app-top-header></app-top-header>
+  <div class="wacthVideoContainer">
+    <div class="videoContainer">
+      <div class="watchContainer" #watchContainer></div>
+      <div class="title">
+        {{ video[0].snippet.title }}
+      </div>
+      <div class="description">
+        {{ video[0].snippet.description }}
+      </div>
+    </div>
+    <div class="relationedVideos">
+      <div class="video" *ngFor="let video of relationedVideos">
+        <div class="container" (click)="watchVideo(video.id.videoId!)">
+          <div class="thumb">
+            <img src="{{ video.snippet.thumbnails.high.url }}" alt="thumb" />
+          </div>
+          <div class="title">
+            <div>
+              <strong>{{ video.snippet.channelTitle }}</strong>
+              <span>{{ video.snippet.publishedAt }}</span>
+            </div>
+            <div>{{ video.snippet.title | titlecase }}</div>
+          </div>
         </div>
       </div>
     </div>

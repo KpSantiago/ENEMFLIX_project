@@ -1,0 +1,19 @@
+<div class="slideContainer">
+  <div class="dotsContainer">
+    <div
+      class="dots"
+      *ngFor="let dot of slideImages; let dots = index"
+      (click)="goToSlide(dots!)"
+      [ngClass]="{ active: this.currentIndex === dots }"
+    ></div>
+  </div>
+  <div
+    class="slide"
+    [ngStyle]="{
+      height: 100 + '%',
+      width: 100 + '%',
+      'background-image': getCurrentSlide(),
+      color: 'white'
+    }"
+  ></div>
+</div>

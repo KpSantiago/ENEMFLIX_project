@@ -13,6 +13,7 @@ import { SearchService } from 'src/app/services/search/search.service';
 })
 export class SearchPageComponent implements OnInit {
   videos!: Categories[];
+  searchQuery!: string;
 
   constructor(
     private ServiceSearch: SearchService,
@@ -22,6 +23,8 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit(): void {
     const search = this.route.snapshot.paramMap.get('q');
+
+    this.searchQuery = search!;
 
     const searchedVideosExists = JSON.parse(
       localStorage.getItem('searchedVideos') || 'null'

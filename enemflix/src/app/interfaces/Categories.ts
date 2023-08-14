@@ -12,6 +12,7 @@ export interface Categories {
   snippet: {
     publishedAt: string;
     channelId: string;
+    channelTitle: string;
     title: string;
     description: string;
     thumbnails: {

@@ -1,3 +1,24 @@
+.searchVideosContainer {
+  color: #fff;
+  width: 100%;
+  min-height: 100%;
+  padding: 0 60px;
+}
+
+.searchVideosContainer h1 {
+  font-size: 3.2rem;
+  font-weight: 500;
+  margin: 60px 0;
+}
+
+.videosContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
 .video .thumb img {
+  height: 250px;
+  width: 300px;
   clip-path: polygon(0 13%, 100% 13%, 100% 87%, 0% 87%);
 }

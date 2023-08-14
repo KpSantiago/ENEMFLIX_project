@@ -1,23 +1,53 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Categories } from 'src/app/interfaces/Categories';
 
 import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 
+import {
+  faChevronRight,
+  faChevronLeft,
+} from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
-  @ViewChild('#descVideo') descVideo!: ElementRef<HTMLDivElement>;
-  @ViewChild('#brVideo') brVideo!: ElementRef<HTMLDivElement>;
-  @ViewChild('#stdVideo') stdVideo!: ElementRef<HTMLDivElement>;
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('front') front!: ElementRef<HTMLElement>;
+  @ViewChild('front2') front2!: ElementRef<HTMLElement>;
+  @ViewChild('front3') front3!: ElementRef<HTMLElement>;
+  @ViewChild('left') left!: ElementRef<HTMLElement>;
+  @ViewChild('left2') left2!: ElementRef<HTMLElement>;
+  @ViewChild('left3') left3!: ElementRef<HTMLElement>;
+  @ViewChild('videoD') videoD!: ElementRef<HTMLElement>;
+  @ViewChild('videoB') videoB!: ElementRef<HTMLElement>;
+  @ViewChild('videoS') videoS!: ElementRef<HTMLElement>;
+
+  @ViewChild('cVideo') cVideo!: ElementRef<HTMLElement>;
+  @ViewChild('btn1') btn!: ElementRef;
+
+  imagesSlide: { url: string }[] = [
+    { url: '../../../../assets/descomplica.png' },
+    { url: '../../../../assets/brasilEscola.png' },
+    { url: '../../../../assets/stoodi.png' },
+  ];
 
   descomplica!: Categories[];
+  descThumb: string = '';
   brasilEscola!: Categories[];
   stoodi!: Categories[];
+
+  arrowRight = faChevronRight;
+  arrowLeft = faChevronLeft;
 
   constructor(
     private ServicePlaylist: PlaylistService,
@@ -28,7 +58,6 @@ export class HomeComponent implements OnInit {
     const descomplicaExists: Categories[] | null = JSON.parse(
       localStorage.getItem('descomplica') || 'null'
     );
-
     const brasilEscolaExists: Categories[] = JSON.parse(
       localStorage.getItem('brasilEscola') || 'null'
     );
@@ -44,18 +73,11 @@ export class HomeComponent implements OnInit {
 
         items.map((data) => {
           data.snippet.publishedAt = new Date(
-            data.snippet.publishedAt
-          ).toLocaleDateString();
+            data.snippet.publishedAt!
+          ).toLocaleDateString('pt-BR');
         });
 
         localStorage.setItem('descomplica', JSON.stringify(items));
-
-        items.filter((itm) => {
-          itm.id.videoId == 'aqazAdlFgTY';
-          this.descVideo.nativeElement.innerHTML =
-            itm.snippet.thumbnails.maxres.url;
-          console.log(itm);
-        });
 
         this.descomplica = items;
       });
@@ -71,10 +93,8 @@ export class HomeComponent implements OnInit {
 
       const descVideo = this.descomplica
         .filter((itm) => itm.id.videoId == 'aqazAdlFgTY')
-        .map((i) => i.snippet.thumbnails.maxres.url);
-
-      // document.querySelector('.video1')!.innerHTML = descVideo[0]
-      console.log(descVideo[0]);
+        .map((i) => i.snippet.thumbnails.high.url);
+      this.descThumb = descVideo[0];
     }
 
     // BRASIL ESCOLA
@@ -115,6 +135,79 @@ export class HomeComponent implements OnInit {
         this.stoodi = items;
       });
     }
+  }
+
+  ngAfterViewInit(): void {
+    let n = 0;
+
+    this.front.nativeElement.addEventListener('click', () => {
+      n = n + 250;
+
+      if (n >= 4160) {
+        n = 4160;
+        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+    this.left.nativeElement.addEventListener('click', () => {
+      n = n - 250;
+
+      if (n >= 4160) {
+        n = 0;
+        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+
+    this.front2.nativeElement.addEventListener('click', () => {
+      n = n + 250;
+
+      if (n >= 4160) {
+        n = 4160;
+        this.videoB.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.videoB.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+
+    this.left2.nativeElement.addEventListener('click', () => {
+      n = n - 250;
+
+      if (n >= 4160) {
+        n = 0;
+        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+
+    this.front3.nativeElement.addEventListener('click', () => {
+      n = n + 250;
+
+      if (n >= 4160) {
+        n = 4160;
+        this.videoS.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.videoS.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+
+    this.left.nativeElement.addEventListener('click', () => {
+      n = n - 250;
+
+      if (n >= 4160) {
+        n = 0;
+        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+
+    let count = 1;
+    // console.log(document.querySelector('#b1')?.ariaChecked);
+    this.cVideo.nativeElement.classList.toggle('active');
   }
 
   watchVideo(id: string): void {

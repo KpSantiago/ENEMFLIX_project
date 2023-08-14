@@ -6,6 +6,7 @@ export interface Videos {
   snippet: {
     publishedAt: string;
     channelId: string;
+    channelTitle: string;
     title: string;
     description: string;
   };

@@ -6,11 +6,13 @@ import { InformationsComponent } from './components/pages/informations/informati
 import { CategoriesComponent } from './components/pages/categories/categories.component';
 import { SearchPageComponent } from './components/pages/search-page/search-page.component';
 import { WatchVideoComponent } from './components/pages/watch-video/watch-video.component';
+import { CategoriesMenuComponent } from './components/pages/categories-menu/categories-menu.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'watch/:i', component: WatchVideoComponent },
   { path: 'category/:c', component: CategoriesComponent },
+  { path: 'subjects', component: CategoriesMenuComponent },
   { path: 'search/:q', component: SearchPageComponent },
   { path: 'informations', component: InformationsComponent },
 ];

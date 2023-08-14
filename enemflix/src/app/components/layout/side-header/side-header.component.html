@@ -1,12 +1,18 @@
+<input type="checkbox" name="b" id="menuBtn" />
+<label for="menuBtn" class="menuHumburguer">
+  <div></div>
+  <div></div>
+  <div></div>
+</label>
 <header>
   <div class="logo">
-    <img src="" alt="enemflix" />
+    <img src="../../../../assets/enemflixLogo.svg" alt="enemflix" />
   </div>
   <div class="search-box">
     <app-search></app-search>
   </div>
   <nav class="menu">
-    <h4>Categorias</h4>
+    <h4><img src="../../../../assets/categoriesIcon.svg" />Categorias</h4>
     <ul>
       <li><a routerLink="category/Redação">Redação</a></li>
       <li><a routerLink="category/Português">Português</a></li>
@@ -23,7 +29,7 @@
       <li><a routerLink="category/Espanhol">Espanhol</a></li>
     </ul>
   </nav>
-  <div>
+  <div class="informationsBtn">
     <a routerLink="informations">Informações</a>
   </div>
 </header>

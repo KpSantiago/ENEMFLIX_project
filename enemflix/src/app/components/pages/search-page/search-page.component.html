@@ -1,4 +1,6 @@
 <div class="searchVideosContainer">
+  <app-top-header></app-top-header>
+  <h1>{{ searchQuery | titlecase }}</h1>
   <div class="videosContainer">
     <div class="video" *ngFor="let video of videos">
       <div class="contaier" (click)="watchVideo(video.id.videoId)">

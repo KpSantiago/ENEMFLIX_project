@@ -10,6 +10,7 @@ import { CategoriesService } from 'src/app/services/categories/categories.servic
 })
 export class CategoriesComponent implements OnInit {
   category!: Categories[];
+  categoryName!: string;
 
   constructor(
     private router: ActivatedRoute,
@@ -18,7 +19,7 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     const category = this.router.snapshot.paramMap.get('c');
-
+    this.categoryName = category!;
     const categoryExists = JSON.parse(
       localStorage.getItem('category') || 'null'
     );
@@ -28,13 +29,31 @@ export class CategoriesComponent implements OnInit {
         (data) => {
           const items = data.items;
 
-          localStorage.setItem('category', JSON.stringify(items))
+          localStorage.setItem(
+            'category',
+            JSON.stringify({ cName: this.categoryName, data: items })
+          );
 
           this.category = items;
         }
       );
     } else {
-      this.category = categoryExists;
+      if (categoryExists.name == this.categoryName) {
+        this.category = categoryExists.data;
+      } else {
+        this.ServiceCategories.getVideosCategories(category!).subscribe(
+          (data) => {
+            const items = data.items;
+
+            localStorage.setItem(
+              'category',
+              JSON.stringify({ cName: this.categoryName, data: items })
+            );
+
+            this.category = items;
+          }
+        );
+      }
     }
   }
 }

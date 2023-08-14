@@ -1,0 +1,36 @@
+.slideContainer {
+  width: 100%;
+  height: 550px;
+  position: relative;
+}
+
+input {
+  display: none;
+}
+
+.slideContainer .slide {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.3s;
+}
+
+.slideContainer .dotsContainer {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  top: 90%;
+  left: calc(50% - 40px);
+}
+
+.slideContainer .dots {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.active {
+  background-color: #000;
+}

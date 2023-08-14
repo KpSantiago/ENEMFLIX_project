@@ -14,6 +14,8 @@ import { SearchComponent } from './components/layout/search/search.component';
 import { SideHeaderComponent } from './components/layout/side-header/side-header.component';
 import { TopHeaderComponent } from './components/layout/top-header/top-header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CategoriesMenuComponent } from './components/pages/categories-menu/categories-menu.component';
+import { SlideComponent } from './components/layout/slide/slide.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SearchComponent,
     SideHeaderComponent,
     TopHeaderComponent,
+    CategoriesMenuComponent,
+    SlideComponent,
   ],
   imports: [
     BrowserModule,

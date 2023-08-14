@@ -1,1 +1,11 @@
-<p>categories works!</p>
+<div class="categoriesContainer">
+  <app-top-header></app-top-header>
+  <h1>{{ categoryName }}</h1>
+  <div class="videosContainer">
+    <div class="videoContainer" *ngFor="let video of category">
+      <div class="thumb">
+        <img src="{{ video.snippet.thumbnails.high.url }}" alt="videoThumb" />
+      </div>
+    </div>
+  </div>
+</div>

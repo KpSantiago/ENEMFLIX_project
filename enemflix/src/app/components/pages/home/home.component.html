@@ -2,23 +2,38 @@
   <app-side-header></app-side-header>
   <div class="main">
     <!-- SLIDE -->
-    <div class="slider">
-      <div class="video1" #descVideo></div>
-      <div class="video2" #brVideo></div>
-      <div class="video3" #stdVideo></div>
-    </div>
+    <app-slide [slideImages]="imagesSlide"></app-slide>
     <!-- PLAYLIST  -->
     <div class="playlists-container">
       <div class="playlist">
         <h2>Descomplica</h2>
-        <div class="videos-container" *ngIf="descomplica">
+        <div class="passBtns">
+          <span #left>
+            <fa-icon [icon]="arrowLeft"></fa-icon>
+          </span>
+          <span #front>
+            <fa-icon [icon]="arrowRight"></fa-icon>
+          </span>
+        </div>
+        <div class="videos-container" #videoD *ngIf="descomplica">
           <div class="video" *ngFor="let video of descomplica">
-            <div class="container" (click)="watchVideo(video.id.videoId)">
+            <div
+              class="container"
+              (click)="watchVideo(video.id.videoId)"
+              #cVideo
+            >
               <div class="thumb">
                 <img
                   src="{{ video.snippet.thumbnails.high.url }}"
                   alt="playlist"
                 />
+                <div class="title">
+                  <div>
+                    <strong>{{ video.snippet.channelTitle }}</strong>
+                    <span>{{ video.snippet.publishedAt }}</span>
+                  </div>
+                  <div>{{ video.snippet.title | titlecase }}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -26,7 +41,15 @@
       </div>
       <div class="playlist">
         <h2>Brasil Escola</h2>
-        <div class="videos-container" *ngIf="brasilEscola">
+        <div class="passBtns">
+          <span #left2>
+            <fa-icon [icon]="arrowLeft"></fa-icon>
+          </span>
+          <span #front2>
+            <fa-icon [icon]="arrowRight"></fa-icon>
+          </span>
+        </div>
+        <div class="videos-container" #videoB *ngIf="brasilEscola">
           <div class="video" *ngFor="let video of brasilEscola">
             <div class="container" (click)="watchVideo(video.id.videoId)">
               <div class="thumb">
@@ -35,13 +58,28 @@
                   alt="playlist"
                 />
               </div>
+              <div class="title">
+                <div>
+                  <strong>{{ video.snippet.channelTitle }}</strong>
+                  <span>{{ video.snippet.publishedAt }}</span>
+                </div>
+                <div>{{ video.snippet.title | titlecase }}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="playlist">
         <h2>Stoodi</h2>
-        <div class="videos-container" *ngIf="stoodi">
+        <div class="passBtns">
+          <span #left3>
+            <fa-icon [icon]="arrowLeft"></fa-icon>
+          </span>
+          <span #front3>
+            <fa-icon [icon]="arrowRight"></fa-icon>
+          </span>
+        </div>
+        <div class="videos-container" #videoS *ngIf="stoodi">
           <div class="video" *ngFor="let video of stoodi">
             <div class="container" (click)="watchVideo(video.id.videoId)">
               <div class="thumb">
@@ -49,6 +87,13 @@
                   src="{{ video.snippet.thumbnails.high.url }}"
                   alt="playlist"
                 />
+              </div>
+              <div class="title">
+                <div>
+                  <strong>{{ video.snippet.channelTitle }}</strong>
+                  <span>{{ video.snippet.publishedAt }}</span>
+                </div>
+                <div>{{ video.snippet.title | titlecase }}</div>
               </div>
             </div>
           </div>

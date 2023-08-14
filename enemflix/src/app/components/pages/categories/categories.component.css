@@ -1,0 +1,25 @@
+.categoriesContainer {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+h1 {
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: 500;
+  margin: 90px 0px 60px 60px;
+}
+
+.videosContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 60px;
+}
+
+.thumb img {
+  height: 250px;
+  max-width: 300px;
+  clip-path: polygon(0 13%, 100% 13%, 100% 87%, 0% 87%);
+}

@@ -1,1 +1,30 @@
-<p>top-header works!</p>
+<input type="checkbox" name="b" id="menuBtn" />
+<label for="menuBtn" class="menuHumburguer">
+  <div></div>
+  <div></div>
+  <div></div>
+</label>
+<header>
+  <div class="logo">
+    <img src="../../../../assets/enemflixLogo.svg" alt="enemflix" />
+  </div>
+  <nav class="menu">
+    <ul>
+      <li><a routerLink="/">Início</a></li>
+      <li><a (click)="redirect('subjects')">Categorias</a></li>
+      <li><a (click)="redirect('informations')">Informações</a></li>
+    </ul>
+  </nav>
+  <div class="search-box">
+    <form
+      class="search-container"
+      (submit)="searchVideos()"
+      [formGroup]="search"
+    >
+      <input type="search" formControlName="query" placeholder="Buscar..." />
+      <button type="submit" class="searchButton">
+        <img src="../../../../assets/searchIcon.svg" alt="search" />
+      </button>
+    </form>
+  </div>
+</header>
