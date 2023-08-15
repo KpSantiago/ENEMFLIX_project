@@ -6,7 +6,7 @@
 
 h1 {
   color: #fff;
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 500;
   margin: 90px 0px 60px 60px;
 }
@@ -68,4 +68,28 @@ h1 {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.nothingResponse {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.nothingResponse .videoCont {
+  background-color: #a9a9a9;
+  height: 187px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.videoCont {
+  color: #000;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
 }

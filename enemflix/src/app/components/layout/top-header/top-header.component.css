@@ -33,6 +33,7 @@ header {
   text-decoration: none;
   color: #fff;
   transition: color 0.2s;
+  cursor: pointer;
 }
 
 .menu li:hover a {

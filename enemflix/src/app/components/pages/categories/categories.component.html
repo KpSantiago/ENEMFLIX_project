@@ -1,7 +1,7 @@
 <app-top-header></app-top-header>
 <div class="categoriesContainer">
   <h1>{{ categoryName }}</h1>
-  <div class="videosContainer">
+  <div class="videosContainer" *ngIf="category; else nothing">
     <div class="video" *ngFor="let video of category">
       <div class="container" (click)="redirectToVideo(video.id.videoId)">
         <div class="thumb">
@@ -17,4 +17,28 @@
       </div>
     </div>
   </div>
+  <ng-template #nothing>
+    <div class="nothingResponse">
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+      <div class="videoCont"><span>error</span></div>
+    </div>
+  </ng-template>
 </div>

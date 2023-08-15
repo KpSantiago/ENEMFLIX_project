@@ -1,7 +1,7 @@
 <div class="parentContainer">
   <app-top-header></app-top-header>
   <div class="wacthVideoContainer">
-    <div class="videoContainer">
+    <div class="videoContainer" *ngIf="video; else nothingVideo">
       <div class="watchContainer" #watchContainer></div>
       <div class="title">
         {{ video[0].snippet.title }}
@@ -10,7 +10,10 @@
         {{ video[0].snippet.description }}
       </div>
     </div>
-    <div class="relationedVideos">
+    <ng-template #nothingVideo>
+      <div class="nothingVideo"></div>
+    </ng-template>
+    <div class="relationedVideos" *ngIf="relationedVideos; else nothing">
       <div class="video" *ngFor="let video of relationedVideos">
         <div class="container" (click)="watchVideo(video.id.videoId!)">
           <div class="thumb">
@@ -26,5 +29,29 @@
         </div>
       </div>
     </div>
+    <ng-template #nothing>
+      <div class="nothingResponse">
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+        <div class="videoCont"><span>error</span></div>
+      </div>
+    </ng-template>
   </div>
 </div>

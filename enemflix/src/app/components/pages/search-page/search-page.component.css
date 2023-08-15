@@ -67,3 +67,27 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.nothingResponse {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.nothingResponse .videoCont {
+  background-color: #a9a9a9;
+  height: 187px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.videoCont {
+  color: #000;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+}
