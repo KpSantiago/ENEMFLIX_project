@@ -1,10 +1,19 @@
+<app-top-header></app-top-header>
 <div class="categoriesContainer">
-  <app-top-header></app-top-header>
   <h1>{{ categoryName }}</h1>
   <div class="videosContainer">
-    <div class="videoContainer" *ngFor="let video of category">
-      <div class="thumb">
-        <img src="{{ video.snippet.thumbnails.high.url }}" alt="videoThumb" />
+    <div class="video" *ngFor="let video of category">
+      <div class="container">
+        <div class="thumb">
+          <img src="{{ video.snippet.thumbnails.high.url }}" alt="videoThumb" />
+        </div>
+        <div class="title">
+          <div>
+            <strong>{{ video.snippet.channelTitle }}</strong>
+            <span>{{ video.snippet.publishedAt }}</span>
+          </div>
+          <div>{{ video.snippet.title | titlecase }}</div>
+        </div>
       </div>
     </div>
   </div>

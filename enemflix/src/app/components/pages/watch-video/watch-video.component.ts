@@ -48,10 +48,14 @@ export class WatchVideoComponent implements OnInit {
     } else {
       this.video = videoExists;
 
-      console.log(this.video);
-      // this.wacth.nativeElement.innerHTML = this.video[0].player.embedHtml;
-      document.querySelector('.watchContainer')!.innerHTML =
-        this.video[0].player.embedHtml;
+      if (this.video[0].id === id) {
+        console.log(this.video);
+
+        document.querySelector('.watchContainer')!.innerHTML =
+          this.video[0].player.embedHtml;
+      } else {
+        localStorage.removeItem('video');
+      }
     }
   }
 
@@ -61,19 +65,19 @@ export class WatchVideoComponent implements OnInit {
       localStorage.getItem('relationedVideos') || 'null'
     );
 
-    if (relationedVideosExists == null) {
-      this.ServiceCategories.getVideosCategories(this.titleVideo!).subscribe(
-        (data) => {
-          const items = data.items;
+    // if (relationedVideosExists == null) {
+    this.ServiceCategories.getVideosCategories(this.titleVideo!).subscribe(
+      (data) => {
+        const items = data.items;
 
-          localStorage.setItem('relationedVideos', JSON.stringify(items));
+        localStorage.setItem('relationedVideos', JSON.stringify(items));
 
-          this.relationedVideos = items;
-        }
-      );
-    } else {
-      this.relationedVideos = relationedVideosExists;
-    }
+        this.relationedVideos = items;
+      }
+    );
+    // } else {
+    // this.relationedVideos = relationedVideosExists;
+    // }
   }
 
   async watchVideo(id: string) {

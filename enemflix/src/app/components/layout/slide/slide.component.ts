@@ -21,7 +21,7 @@ export class SlideComponent implements OnInit {
   }
 
   getCurrentSlide(): string {
-    return `url(${this.slideImages[this.currentIndex].url})`;
+    return `${this.slideImages[this.currentIndex].url}`;
   }
 
   goToSlide(n: number) {

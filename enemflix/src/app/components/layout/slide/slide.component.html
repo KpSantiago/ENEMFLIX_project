@@ -7,13 +7,6 @@
       [ngClass]="{ active: this.currentIndex === dots }"
     ></div>
   </div>
-  <div
-    class="slide"
-    [ngStyle]="{
-      height: 100 + '%',
-      width: 100 + '%',
-      'background-image': getCurrentSlide(),
-      color: 'white'
-    }"
-  ></div>
+  <img src="{{ getCurrentSlide() }}" />
 </div>
+<!-- [ngStyle]="{ 'background-image': 'url(' + getCurrentSlide() + ')' }" -->

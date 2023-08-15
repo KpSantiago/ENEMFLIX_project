@@ -36,9 +36,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('btn1') btn!: ElementRef;
 
   imagesSlide: { url: string }[] = [
-    { url: '../../../../assets/descomplica.png' },
-    { url: '../../../../assets/brasilEscola.png' },
-    { url: '../../../../assets/stoodi.png' },
+    { url: '../../../../assets/redacao.svg' },
+    { url: '../../../../assets/cienciasDaNatureza.svg' },
+    { url: '../../../../assets/cienciasHumanas.svg' },
   ];
 
   descomplica!: Categories[];
@@ -83,13 +83,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       });
     } else {
       this.descomplica = descomplicaExists;
-      //  descomplicaExists
-      // .filter((itm) => itm.id.videoId == 'aqazAdlFgTY')
-      // .map(
-      //   (i) =>
-      //     (document.querySelector('.video1')!.innerHTML =
-      //       i.snippet.thumbnails.maxres.url)
-      // );
 
       const descVideo = this.descomplica
         .filter((itm) => itm.id.videoId == 'aqazAdlFgTY')
