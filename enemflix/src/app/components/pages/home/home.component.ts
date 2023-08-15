@@ -36,15 +36,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('btn1') btn!: ElementRef;
 
   imagesSlide: { url: string }[] = [
-    { url: '../../../../assets/redacao.svg' },
-    { url: '../../../../assets/cienciasDaNatureza.svg' },
-    { url: '../../../../assets/cienciasHumanas.svg' },
+    { url: '../../../../assets/redacao.png' },
+    { url: '../../../../assets/cienciasDaNatureza.png' },
+    { url: '../../../../assets/cienciasHumanas.png' },
   ];
 
-  descomplica!: Categories[];
-  descThumb: string = '';
-  brasilEscola!: Categories[];
-  stoodi!: Categories[];
+  redacao!: Categories[];
+  cienciasDaNatureza!: Categories[];
+  cienciasHumanas!: Categories[];
 
   arrowRight = faChevronRight;
   arrowLeft = faChevronLeft;
@@ -55,20 +54,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    const descomplicaExists: Categories[] | null = JSON.parse(
-      localStorage.getItem('descomplica') || 'null'
+    const redacaoExists: Categories[] | null = JSON.parse(
+      localStorage.getItem('redacao') || 'null'
     );
-    const brasilEscolaExists: Categories[] = JSON.parse(
-      localStorage.getItem('brasilEscola') || 'null'
+    const cienciasDaNaturezaExists: Categories[] = JSON.parse(
+      localStorage.getItem('cienciasDaNatureza') || 'null'
     );
 
-    const stoodiExists: Categories[] = JSON.parse(
-      localStorage.getItem('stoodi') || 'null'
+    const cienciasHumanasExists: Categories[] = JSON.parse(
+      localStorage.getItem('cienciasHumanas') || 'null'
     );
 
     // DESCOMPLPICA
-    if (descomplicaExists == null) {
-      this.ServicePlaylist.getVideosDescomplica().subscribe((data) => {
+    if (redacaoExists == null) {
+      this.ServicePlaylist.getVideosRedacao().subscribe((data) => {
         const items = data.items;
 
         items.map((data) => {
@@ -77,22 +76,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
           ).toLocaleDateString('pt-BR');
         });
 
-        localStorage.setItem('descomplica', JSON.stringify(items));
+        localStorage.setItem('redacao', JSON.stringify(items));
 
-        this.descomplica = items;
+        this.redacao = items;
       });
     } else {
-      this.descomplica = descomplicaExists;
-
-      const descVideo = this.descomplica
-        .filter((itm) => itm.id.videoId == 'aqazAdlFgTY')
-        .map((i) => i.snippet.thumbnails.high.url);
-      this.descThumb = descVideo[0];
+      this.redacao = redacaoExists;
     }
 
     // BRASIL ESCOLA
-    if (brasilEscolaExists == null) {
-      this.ServicePlaylist.getVideosBrasilEscola().subscribe((data) => {
+    if (cienciasDaNaturezaExists == null) {
+      this.ServicePlaylist.getVideosCienciasDaNatureza().subscribe((data) => {
         const items = data.items;
 
         items.map((data) => {
@@ -101,20 +95,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
           ).toLocaleDateString();
         });
 
-        localStorage.setItem('brasilEscola', JSON.stringify(items));
+        localStorage.setItem('cienciasDaNatureza', JSON.stringify(items));
 
-        this.brasilEscola = items;
+        this.cienciasDaNatureza = items;
       });
     } else {
-      this.brasilEscola = brasilEscolaExists;
+      this.cienciasDaNatureza = cienciasDaNaturezaExists;
     }
 
     // STOODI
-    if (stoodiExists) {
-      this.stoodi = stoodiExists;
+    if (cienciasHumanasExists) {
+      this.cienciasHumanas = cienciasHumanasExists;
     }
-    if (stoodiExists == null) {
-      this.ServicePlaylist.getVideosStoodi().subscribe((data) => {
+    if (cienciasHumanasExists == null) {
+      this.ServicePlaylist.getVideosCienciasHumanas().subscribe((data) => {
         const items = data.items;
 
         items.map((data) => {
@@ -123,9 +117,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
           ).toLocaleDateString();
         });
 
-        localStorage.setItem('stoodi', JSON.stringify(items));
+        localStorage.setItem('cienciasHumanas', JSON.stringify(items));
 
-        this.stoodi = items;
+        this.cienciasHumanas = items;
       });
     }
   }
@@ -197,10 +191,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.videoD.nativeElement.style.marginLeft = `-${n}px`;
       }
     });
-
-    let count = 1;
-    // console.log(document.querySelector('#b1')?.ariaChecked);
-    this.cVideo.nativeElement.classList.toggle('active');
   }
 
   watchVideo(id: string): void {

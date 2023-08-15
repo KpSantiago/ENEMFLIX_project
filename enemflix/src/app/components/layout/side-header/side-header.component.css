@@ -96,6 +96,21 @@ header {
     width: calc(230px + 100px);
   }
 
+  header {
+    overflow-y: auto;
+  }
+
+  header::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+  }
+
+  header::-webkit-scrollbar-thumb {
+    background-color: #0f7;
+    border-radius: 5px;
+  }
+
   .menuHumburguerSide {
     min-width: 30px;
     height: 30px;
@@ -133,10 +148,11 @@ header {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 401px) {
   header * {
     transform: scale(0.92);
   }
+
   .informationsBtn {
     position: relative;
     top: -35px;

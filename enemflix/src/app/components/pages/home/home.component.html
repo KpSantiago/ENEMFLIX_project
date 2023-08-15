@@ -15,8 +15,8 @@
             <fa-icon [icon]="arrowRight"></fa-icon>
           </span>
         </div>
-        <div class="videos-container" #videoD *ngIf="descomplica">
-          <div class="video" *ngFor="let video of descomplica">
+        <div class="videos-container" #videoD *ngIf="redacao">
+          <div class="video" *ngFor="let video of redacao">
             <div
               class="container"
               (click)="watchVideo(video.id.videoId)"
@@ -49,8 +49,8 @@
             <fa-icon [icon]="arrowRight"></fa-icon>
           </span>
         </div>
-        <div class="videos-container" #videoB *ngIf="brasilEscola">
-          <div class="video" *ngFor="let video of brasilEscola">
+        <div class="videos-container" #videoB *ngIf="cienciasDaNatureza">
+          <div class="video" *ngFor="let video of cienciasDaNatureza">
             <div class="container" (click)="watchVideo(video.id.videoId)">
               <div class="thumb">
                 <img
@@ -79,8 +79,8 @@
             <fa-icon [icon]="arrowRight"></fa-icon>
           </span>
         </div>
-        <div class="videos-container" #videoS *ngIf="stoodi">
-          <div class="video" *ngFor="let video of stoodi">
+        <div class="videos-container" #videoS *ngIf="cienciasHumanas">
+          <div class="video" *ngFor="let video of cienciasHumanas">
             <div class="container" (click)="watchVideo(video.id.videoId)">
               <div class="thumb">
                 <img

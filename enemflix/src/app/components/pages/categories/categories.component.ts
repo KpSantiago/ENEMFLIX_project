@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Categories } from 'src/app/interfaces/Categories';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 
@@ -13,6 +13,7 @@ export class CategoriesComponent implements OnInit {
   categoryName!: string;
 
   constructor(
+    private route: Router,
     private router: ActivatedRoute,
     private ServiceCategories: CategoriesService
   ) {}
@@ -45,6 +46,12 @@ export class CategoriesComponent implements OnInit {
           (data) => {
             const items = data.items;
 
+            items.map((data) => {
+              data.snippet.publishedAt = new Date(
+                data.snippet.publishedAt
+              ).toLocaleDateString();
+            });
+
             localStorage.setItem(
               'category',
               JSON.stringify({ cName: this.categoryName, data: items })
@@ -55,5 +62,9 @@ export class CategoriesComponent implements OnInit {
         );
       }
     }
+  }
+
+  redirectToVideo(id: string) {
+    this.route.navigate([`watch/${id}`]);
   }
 }

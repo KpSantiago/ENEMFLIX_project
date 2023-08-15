@@ -44,23 +44,14 @@ h1 {
   position: absolute;
   left: 0px;
   bottom: 35.2px;
-  opacity: 0;
   padding: 5px;
 }
 
-.title {
-  transition: all 0.3s;
-}
-
 .container .title div {
-  max-width: 250px;
+  max-width: 100%;
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
-}
-
-.container:hover .title {
-  opacity: 1;
 }
 
 .title strong + span {
@@ -70,4 +61,11 @@ h1 {
 .title div:first-child {
   display: flex;
   justify-content: space-between;
+}
+
+.title div:first-child strong {
+  width: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

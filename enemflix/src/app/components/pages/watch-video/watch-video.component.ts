@@ -54,7 +54,16 @@ export class WatchVideoComponent implements OnInit {
         document.querySelector('.watchContainer')!.innerHTML =
           this.video[0].player.embedHtml;
       } else {
-        localStorage.removeItem('video');
+        this.ServiceVideos.getVideo(id!).subscribe((data) => {
+          const items = data.items;
+          this.titleVideo = items[0].snippet.title;
+
+          localStorage.setItem('video', JSON.stringify(items));
+
+          this.video = items;
+
+          this.watch.nativeElement.innerHTML = this.video[0].player.embedHtml;
+        });
       }
     }
   }
@@ -65,19 +74,25 @@ export class WatchVideoComponent implements OnInit {
       localStorage.getItem('relationedVideos') || 'null'
     );
 
-    // if (relationedVideosExists == null) {
-    this.ServiceCategories.getVideosCategories(this.titleVideo!).subscribe(
-      (data) => {
-        const items = data.items;
+    if (relationedVideosExists == null) {
+      this.ServiceCategories.getVideosCategories(this.titleVideo!).subscribe(
+        (data) => {
+          const items = data.items;
 
-        localStorage.setItem('relationedVideos', JSON.stringify(items));
+          items.map((data) => {
+            data.snippet.publishedAt = new Date(
+              data.snippet.publishedAt
+            ).toLocaleDateString();
+          });
 
-        this.relationedVideos = items;
-      }
-    );
-    // } else {
-    // this.relationedVideos = relationedVideosExists;
-    // }
+          localStorage.setItem('relationedVideos', JSON.stringify(items));
+
+          this.relationedVideos = items;
+        }
+      );
+    } else {
+      this.relationedVideos = relationedVideosExists;
+    }
   }
 
   async watchVideo(id: string) {

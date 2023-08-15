@@ -34,6 +34,12 @@ export class SearchPageComponent implements OnInit {
       this.ServiceSearch.getSearchVideos(search!).subscribe((data) => {
         const items = data.items;
 
+        items.map((data) => {
+          data.snippet.publishedAt = new Date(
+            data.snippet.publishedAt
+          ).toLocaleDateString();
+        });
+
         localStorage.setItem('searchedVideos', JSON.stringify(items));
 
         this.videos = items;

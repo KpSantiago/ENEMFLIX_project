@@ -2,7 +2,7 @@
   color: #fff;
   width: 100%;
   min-height: 100%;
-  padding: 0 60px;
+  padding: 30px 60px;
 }
 
 .searchVideosContainer h1 {
@@ -14,6 +14,7 @@
 .videosContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
 }
 
@@ -21,4 +22,48 @@
   height: 250px;
   width: 300px;
   clip-path: polygon(0 13%, 100% 13%, 100% 87%, 0% 87%);
+}
+
+.video {
+  position: relative;
+}
+
+.container {
+  color: #fff;
+}
+
+.container .title {
+  background-color: #0009;
+  width: 100%;
+  height: 74%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  left: 0px;
+  bottom: 14%;
+  padding: 5px;
+}
+
+.container .title div {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.title strong + span {
+  margin-left: 15px;
+}
+
+.title div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title div:first-child strong {
+  width: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

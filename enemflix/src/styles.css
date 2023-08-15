@@ -15,4 +15,15 @@ iframe {
   width: 93%;
   min-height: 80vh;
   border-radius: 10px;
+  margin-top: 30px;
+}
+
+body::-webkit-scrollbar {
+  background-color: #070707;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #0f7;
+  border-radius: 5px;
 }
