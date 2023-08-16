@@ -119,10 +119,14 @@
   margin: 30px;
 }
 
-@media (max-width: 859px) {
+@media (max-width: 979px) {
   .wacthVideoContainer {
     flex-direction: column;
     align-items: center;
+  }
+
+  .nothingVideo {
+    width: 90vw;
   }
 
   .relationedVideos {
@@ -136,16 +140,10 @@
   .nothingVideo {
     height: 55vh;
   }
-  iframe {
-    height: 55vh;
-  }
 }
 
 @media (max-width: 400px) {
   .nothingVideo {
-    height: 35vh;
-  }
-  iframe {
     height: 35vh;
   }
 }

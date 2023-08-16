@@ -1,12 +1,12 @@
 <div class="parentContainer">
   <app-top-header></app-top-header>
   <div class="wacthVideoContainer">
-    <div class="videoContainer" *ngIf="video; else nothingVideo">
+    <div class="videoContainer">
       <div class="watchContainer" #watchContainer></div>
-      <div class="title">
+      <div class="title" *ngIf="video">
         {{ video[0].snippet.title }}
       </div>
-      <div class="description">
+      <div class="description" *ngIf="video">
         {{ video[0].snippet.description }}
       </div>
     </div>

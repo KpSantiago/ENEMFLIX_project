@@ -49,8 +49,6 @@ export class WatchVideoComponent implements OnInit {
       this.video = videoExists;
 
       if (this.video[0].id === id) {
-        console.log(this.video);
-
         document.querySelector('.watchContainer')!.innerHTML =
           this.video[0].player.embedHtml;
       } else {
