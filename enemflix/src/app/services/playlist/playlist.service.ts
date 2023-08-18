@@ -22,6 +22,18 @@ export class PlaylistService {
     return this.http.get<Response<Categories[]>>(url);
   }
 
+  getVideosMatematicaEsuasTecnologias(): Observable<Response<Categories[]>> {
+    const url = `${this.baseApiUrl}?part=snippet&q=Matemática e suas tecnologias ENEM&maxResults=20&key=${this.apiKey}`;
+
+    return this.http.get<Response<Categories[]>>(url);
+  }
+
+  getVideosLinguagensEcodigos(): Observable<Response<Categories[]>> {
+    const url = `${this.baseApiUrl}?part=snippet&q=Linguagens e códigos ENEM&maxResults=20&key=${this.apiKey}`;
+
+    return this.http.get<Response<Categories[]>>(url);
+  }
+
   getVideosCienciasDaNatureza(): Observable<Response<Categories[]>> {
     const url = `${this.baseApiUrl}?part=snippet&q=ciencias da natureza ENEM&maxResults=20&key=${this.apiKey}`;
 

@@ -22,7 +22,6 @@ input {
   gap: 20px;
   position: absolute;
   top: calc(90% - 15px);
-  /* left: 35%; */
 }
 
 .slideContainer .dots {
@@ -37,6 +36,15 @@ input {
   background-color: #000;
 }
 
+@keyframes slide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 860px) {
   .slideContainer {
     height: fit-content;
@@ -46,9 +54,3 @@ input {
     height: 500px;
   }
 }
-/*  
-@media (max-width: 380px) {
-  .slideContainer {
-    height: 350px;
-  }
-} */

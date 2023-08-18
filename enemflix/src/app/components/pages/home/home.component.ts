@@ -37,11 +37,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   imagesSlide: { url: string }[] = [
     { url: '../../../../assets/redacao.png' },
+    { url: '../../../../assets/matematicaEST.png' },
+    { url: '../../../../assets/linguagensEC.png' },
     { url: '../../../../assets/cienciasDaNatureza.png' },
     { url: '../../../../assets/cienciasHumanas.png' },
   ];
 
   redacao!: Categories[];
+  matEsuasTec!: Categories[];
+  lingEcodigos!: Categories[];
   cienciasDaNatureza!: Categories[];
   cienciasHumanas!: Categories[];
 
@@ -57,6 +61,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     const redacaoExists: Categories[] | null = JSON.parse(
       localStorage.getItem('redacao') || 'null'
     );
+
+    const matematicaESTExists: Categories[] | null = JSON.parse(
+      localStorage.getItem('matematicaEST') || 'null'
+    );
+
+    const linnguagensECExists: Categories[] | null = JSON.parse(
+      localStorage.getItem('linguagensEC') || 'null'
+    );
+
     const cienciasDaNaturezaExists: Categories[] = JSON.parse(
       localStorage.getItem('cienciasDaNatureza') || 'null'
     );
@@ -65,7 +78,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       localStorage.getItem('cienciasHumanas') || 'null'
     );
 
-    // DESCOMPLPICA
     if (redacaoExists == null) {
       this.ServicePlaylist.getVideosRedacao().subscribe((data) => {
         const items = data.items;
@@ -84,7 +96,44 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.redacao = redacaoExists;
     }
 
-    // BRASIL ESCOLA
+    if (matematicaESTExists == null) {
+      this.ServicePlaylist.getVideosMatematicaEsuasTecnologias().subscribe(
+        (data) => {
+          const items = data.items;
+
+          items.map((data) => {
+            data.snippet.publishedAt = new Date(
+              data.snippet.publishedAt!
+            ).toLocaleDateString('pt-BR');
+          });
+
+          localStorage.setItem('matematicaEST', JSON.stringify(items));
+
+          this.matEsuasTec = items;
+        }
+      );
+    } else {
+      this.matEsuasTec = matematicaESTExists;
+    }
+
+    if (linnguagensECExists == null) {
+      this.ServicePlaylist.getVideosLinguagensEcodigos().subscribe((data) => {
+        const items = data.items;
+
+        items.map((data) => {
+          data.snippet.publishedAt = new Date(
+            data.snippet.publishedAt!
+          ).toLocaleDateString('pt-BR');
+        });
+
+        localStorage.setItem('linguagensEC', JSON.stringify(items));
+
+        this.lingEcodigos = items;
+      });
+    } else {
+      this.lingEcodigos = linnguagensECExists;
+    }
+
     if (cienciasDaNaturezaExists == null) {
       this.ServicePlaylist.getVideosCienciasDaNatureza().subscribe((data) => {
         const items = data.items;
@@ -103,7 +152,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.cienciasDaNatureza = cienciasDaNaturezaExists;
     }
 
-    // STOODI
     if (cienciasHumanasExists) {
       this.cienciasHumanas = cienciasHumanasExists;
     }

@@ -40,6 +40,74 @@
         </div>
       </div>
       <div class="playlist">
+        <h2>Matemática e suas tecnologias</h2>
+        <div class="passBtns">
+          <span #left>
+            <fa-icon [icon]="arrowLeft"></fa-icon>
+          </span>
+          <span #front>
+            <fa-icon [icon]="arrowRight"></fa-icon>
+          </span>
+        </div>
+        <div class="videos-container" #videoD *ngIf="matEsuasTec">
+          <div class="video" *ngFor="let video of matEsuasTec">
+            <div
+              class="container"
+              (click)="watchVideo(video.id.videoId)"
+              #cVideo
+            >
+              <div class="thumb">
+                <img
+                  src="{{ video.snippet.thumbnails.high.url }}"
+                  alt="playlist"
+                />
+                <div class="title">
+                  <div>
+                    <strong>{{ video.snippet.channelTitle }}</strong>
+                    <span>{{ video.snippet.publishedAt }}</span>
+                  </div>
+                  <div>{{ video.snippet.title | titlecase }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="playlist">
+        <h2>Linguagens e códigos</h2>
+        <div class="passBtns">
+          <span #left>
+            <fa-icon [icon]="arrowLeft"></fa-icon>
+          </span>
+          <span #front>
+            <fa-icon [icon]="arrowRight"></fa-icon>
+          </span>
+        </div>
+        <div class="videos-container" #videoD *ngIf="lingEcodigos">
+          <div class="video" *ngFor="let video of lingEcodigos">
+            <div
+              class="container"
+              (click)="watchVideo(video.id.videoId)"
+              #cVideo
+            >
+              <div class="thumb">
+                <img
+                  src="{{ video.snippet.thumbnails.high.url }}"
+                  alt="playlist"
+                />
+                <div class="title">
+                  <div>
+                    <strong>{{ video.snippet.channelTitle }}</strong>
+                    <span>{{ video.snippet.publishedAt }}</span>
+                  </div>
+                  <div>{{ video.snippet.title | titlecase }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="playlist">
         <h2>Ciências da Natureza</h2>
         <div class="passBtns">
           <span #left2>
