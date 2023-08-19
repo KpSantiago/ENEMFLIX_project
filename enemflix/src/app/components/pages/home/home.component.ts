@@ -192,6 +192,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.video.nativeElement.style.marginLeft = `-${n}px`;
       }
     });
+
     this.left.nativeElement.addEventListener('click', () => {
       n = n - 250;
 
@@ -203,91 +204,99 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
     });
 
-    this.front2.nativeElement.addEventListener('click', () => {
-      n = n + 250;
+    let n2 = 0;
 
-      if (n >= 4160) {
-        n = 4160;
-        this.video2.nativeElement.style.marginLeft = `-${n}px`;
+    this.front2.nativeElement.addEventListener('click', () => {
+      n2 = n2 + 250;
+
+      if (n2 >= 4160) {
+        n2 = 4160;
+        this.video2.nativeElement.style.marginLeft = `-${n2}px`;
       } else {
-        this.video2.nativeElement.style.marginLeft = `-${n}px`;
+        this.video2.nativeElement.style.marginLeft = `-${n2}px`;
       }
     });
 
     this.left2.nativeElement.addEventListener('click', () => {
-      n = n - 250;
+      n2 = n2 - 250;
 
-      if (n >= 4160) {
-        n = 0;
-        this.video2.nativeElement.style.marginLeft = `-${n}px`;
+      if (n2 >= 4160) {
+        n2 = 0;
+        this.video2.nativeElement.style.marginLeft = `-${n2}px`;
       } else {
-        this.video2.nativeElement.style.marginLeft = `-${n}px`;
+        this.video2.nativeElement.style.marginLeft = `-${n2}px`;
       }
     });
 
-    this.front3.nativeElement.addEventListener('click', () => {
-      n = n + 250;
+    let n3 = 0;
 
-      if (n >= 4160) {
-        n = 4160;
-        this.video3.nativeElement.style.marginLeft = `-${n}px`;
+    this.front3.nativeElement.addEventListener('click', () => {
+      n3 = n3 + 250;
+
+      if (n3 >= 4160) {
+        n3 = 4160;
+        this.video3.nativeElement.style.marginLeft = `-${n3}px`;
       } else {
-        this.video3.nativeElement.style.marginLeft = `-${n}px`;
+        this.video3.nativeElement.style.marginLeft = `-${n3}px`;
       }
     });
 
     this.left3.nativeElement.addEventListener('click', () => {
-      n = n - 250;
+      n3 = n3 - 250;
 
-      if (n >= 4160) {
-        n = 0;
-        this.video3.nativeElement.style.marginLeft = `-${n}px`;
+      if (n3 >= 4160) {
+        n3 = 0;
+        this.video3.nativeElement.style.marginLeft = `-${n3}px`;
       } else {
-        this.video3.nativeElement.style.marginLeft = `-${n}px`;
+        this.video3.nativeElement.style.marginLeft = `-${n3}px`;
       }
     });
 
-    this.front4.nativeElement.addEventListener('click', () => {
-      n = n + 250;
+    let n4 = 0;
 
-      if (n >= 4160) {
-        n = 4160;
-        this.video4.nativeElement.style.marginLeft = `-${n}px`;
+    this.front4.nativeElement.addEventListener('click', () => {
+      n4 = n4 + 250;
+
+      if (n4 >= 4160) {
+        n4 = 4160;
+        this.video4.nativeElement.style.marginLeft = `-${n4}px`;
       } else {
-        this.video4.nativeElement.style.marginLeft = `-${n}px`;
+        this.video4.nativeElement.style.marginLeft = `-${n4}px`;
       }
     });
 
     this.left4.nativeElement.addEventListener('click', () => {
-      n = n - 250;
+      n4 = n4 - 250;
 
-      if (n >= 4160) {
-        n = 0;
-        this.video4.nativeElement.style.marginLeft = `-${n}px`;
+      if (n4 >= 4160) {
+        n4 = 0;
+        this.video4.nativeElement.style.marginLeft = `-${n4}px`;
       } else {
-        this.video4.nativeElement.style.marginLeft = `-${n}px`;
+        this.video4.nativeElement.style.marginLeft = `-${n4}px`;
       }
     });
 
-    this.front5.nativeElement.addEventListener('click', () => {
-      n = n + 250;
+    let n5 = 0;
 
-      if (n >= 4160) {
-        n = 4160;
-        this.video5.nativeElement.style.marginLeft = `-${n}px`;
+    this.front5.nativeElement.addEventListener('click', () => {
+      n5 = n5 + 250;
+
+      if (n5 >= 4160) {
+        n5 = 4160;
+        this.video5.nativeElement.style.marginLeft = `-${n5}px`;
       } else {
-        this.video5.nativeElement.style.marginLeft = `-${n}px`;
+        this.video5.nativeElement.style.marginLeft = `-${n5}px`;
       }
     });
 
     this.left5.nativeElement.addEventListener('click', () => {
-      n = n - 250;
+      n5 = n5 - 250;
 
-      if (n >= 4160) {
-        n = 0;
-        this.video5.nativeElement.style.marginLeft = `-${n}px`;
+      if (n5 >= 4160) {
+        n5 = 0;
+        this.video5.nativeElement.style.marginLeft = `-${n5}px`;
       } else {
-        this.video5.nativeElement.style.marginLeft = `-${n}px`;
+        this.video5.nativeElement.style.marginLeft = `-${n5}px`;
       }
     });
   }
