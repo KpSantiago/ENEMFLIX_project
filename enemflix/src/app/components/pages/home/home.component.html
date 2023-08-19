@@ -15,7 +15,7 @@
             <fa-icon [icon]="arrowRight"></fa-icon>
           </span>
         </div>
-        <div class="videos-container" #videoD *ngIf="redacao">
+        <div class="videos-container" #video *ngIf="redacao">
           <div class="video" *ngFor="let video of redacao">
             <div
               class="container"
@@ -42,14 +42,14 @@
       <div class="playlist">
         <h2>Matemática e suas tecnologias</h2>
         <div class="passBtns">
-          <span #left>
+          <span #left2>
             <fa-icon [icon]="arrowLeft"></fa-icon>
           </span>
-          <span #front>
+          <span #front2>
             <fa-icon [icon]="arrowRight"></fa-icon>
           </span>
         </div>
-        <div class="videos-container" #videoD *ngIf="matEsuasTec">
+        <div class="videos-container" #video2 *ngIf="matEsuasTec">
           <div class="video" *ngFor="let video of matEsuasTec">
             <div
               class="container"
@@ -76,14 +76,14 @@
       <div class="playlist">
         <h2>Linguagens e códigos</h2>
         <div class="passBtns">
-          <span #left>
+          <span #left3>
             <fa-icon [icon]="arrowLeft"></fa-icon>
           </span>
-          <span #front>
+          <span #front3>
             <fa-icon [icon]="arrowRight"></fa-icon>
           </span>
         </div>
-        <div class="videos-container" #videoD *ngIf="lingEcodigos">
+        <div class="videos-container" #video3 *ngIf="lingEcodigos">
           <div class="video" *ngFor="let video of lingEcodigos">
             <div
               class="container"
@@ -110,14 +110,14 @@
       <div class="playlist">
         <h2>Ciências da Natureza</h2>
         <div class="passBtns">
-          <span #left2>
+          <span #left4>
             <fa-icon [icon]="arrowLeft"></fa-icon>
           </span>
-          <span #front2>
+          <span #front4>
             <fa-icon [icon]="arrowRight"></fa-icon>
           </span>
         </div>
-        <div class="videos-container" #videoB *ngIf="cienciasDaNatureza">
+        <div class="videos-container" #video4 *ngIf="cienciasDaNatureza">
           <div class="video" *ngFor="let video of cienciasDaNatureza">
             <div class="container" (click)="watchVideo(video.id.videoId)">
               <div class="thumb">
@@ -140,14 +140,14 @@
       <div class="playlist">
         <h2>Ciências Humanas</h2>
         <div class="passBtns">
-          <span #left3>
+          <span #left5>
             <fa-icon [icon]="arrowLeft"></fa-icon>
           </span>
-          <span #front3>
+          <span #front5>
             <fa-icon [icon]="arrowRight"></fa-icon>
           </span>
         </div>
-        <div class="videos-container" #videoS *ngIf="cienciasHumanas">
+        <div class="videos-container" #video5 *ngIf="cienciasHumanas">
           <div class="video" *ngFor="let video of cienciasHumanas">
             <div class="container" (click)="watchVideo(video.id.videoId)">
               <div class="thumb">

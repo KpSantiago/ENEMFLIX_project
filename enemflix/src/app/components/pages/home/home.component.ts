@@ -4,6 +4,7 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
+  QueryList,
 } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -25,12 +26,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('front') front!: ElementRef<HTMLElement>;
   @ViewChild('front2') front2!: ElementRef<HTMLElement>;
   @ViewChild('front3') front3!: ElementRef<HTMLElement>;
+  @ViewChild('front4') front4!: ElementRef<HTMLElement>;
+  @ViewChild('front5') front5!: ElementRef<HTMLElement>;
   @ViewChild('left') left!: ElementRef<HTMLElement>;
   @ViewChild('left2') left2!: ElementRef<HTMLElement>;
   @ViewChild('left3') left3!: ElementRef<HTMLElement>;
-  @ViewChild('videoD') videoD!: ElementRef<HTMLElement>;
-  @ViewChild('videoB') videoB!: ElementRef<HTMLElement>;
-  @ViewChild('videoS') videoS!: ElementRef<HTMLElement>;
+  @ViewChild('left4') left4!: ElementRef<HTMLElement>;
+  @ViewChild('left5') left5!: ElementRef<HTMLElement>;
+  @ViewChild('video') video!: ElementRef<HTMLElement>;
+  @ViewChild('video2') video2!: ElementRef<HTMLElement>;
+  @ViewChild('video3') video3!: ElementRef<HTMLElement>;
+  @ViewChild('video4') video4!: ElementRef<HTMLElement>;
+  @ViewChild('video5') video5!: ElementRef<HTMLElement>;
 
   @ViewChild('cVideo') cVideo!: ElementRef<HTMLElement>;
   @ViewChild('btn1') btn!: ElementRef;
@@ -180,9 +187,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
       if (n >= 4160) {
         n = 4160;
-        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+        this.video.nativeElement.style.marginLeft = `-${n}px`;
       } else {
-        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+        this.video.nativeElement.style.marginLeft = `-${n}px`;
       }
     });
     this.left.nativeElement.addEventListener('click', () => {
@@ -190,9 +197,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
       if (n >= 4160) {
         n = 0;
-        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+        this.video.nativeElement.style.marginLeft = `-${n}px`;
       } else {
-        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+        this.video.nativeElement.style.marginLeft = `-${n}px`;
       }
     });
 
@@ -201,9 +208,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
       if (n >= 4160) {
         n = 4160;
-        this.videoB.nativeElement.style.marginLeft = `-${n}px`;
+        this.video2.nativeElement.style.marginLeft = `-${n}px`;
       } else {
-        this.videoB.nativeElement.style.marginLeft = `-${n}px`;
+        this.video2.nativeElement.style.marginLeft = `-${n}px`;
       }
     });
 
@@ -212,9 +219,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
       if (n >= 4160) {
         n = 0;
-        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+        this.video2.nativeElement.style.marginLeft = `-${n}px`;
       } else {
-        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+        this.video2.nativeElement.style.marginLeft = `-${n}px`;
       }
     });
 
@@ -223,20 +230,64 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
       if (n >= 4160) {
         n = 4160;
-        this.videoS.nativeElement.style.marginLeft = `-${n}px`;
+        this.video3.nativeElement.style.marginLeft = `-${n}px`;
       } else {
-        this.videoS.nativeElement.style.marginLeft = `-${n}px`;
+        this.video3.nativeElement.style.marginLeft = `-${n}px`;
       }
     });
 
-    this.left.nativeElement.addEventListener('click', () => {
+    this.left3.nativeElement.addEventListener('click', () => {
       n = n - 250;
 
       if (n >= 4160) {
         n = 0;
-        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+        this.video3.nativeElement.style.marginLeft = `-${n}px`;
       } else {
-        this.videoD.nativeElement.style.marginLeft = `-${n}px`;
+        this.video3.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+
+    this.front4.nativeElement.addEventListener('click', () => {
+      n = n + 250;
+
+      if (n >= 4160) {
+        n = 4160;
+        this.video4.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.video4.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+
+    this.left4.nativeElement.addEventListener('click', () => {
+      n = n - 250;
+
+      if (n >= 4160) {
+        n = 0;
+        this.video4.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.video4.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+
+    this.front5.nativeElement.addEventListener('click', () => {
+      n = n + 250;
+
+      if (n >= 4160) {
+        n = 4160;
+        this.video5.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.video5.nativeElement.style.marginLeft = `-${n}px`;
+      }
+    });
+
+    this.left5.nativeElement.addEventListener('click', () => {
+      n = n - 250;
+
+      if (n >= 4160) {
+        n = 0;
+        this.video5.nativeElement.style.marginLeft = `-${n}px`;
+      } else {
+        this.video5.nativeElement.style.marginLeft = `-${n}px`;
       }
     });
   }
