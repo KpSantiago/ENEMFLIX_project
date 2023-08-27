@@ -9,8 +9,6 @@ import { WatchVideoComponent } from './components/pages/watch-video/watch-video.
 import { InformationsComponent } from './components/pages/informations/informations.component';
 import { AppRoutingComponent } from './app-routing.module';
 import { CategoriesComponent } from './components/pages/categories/categories.component';
-import { SearchPageComponent } from './components/pages/search-page/search-page.component';
-import { SearchComponent } from './components/layout/search/search.component';
 import { SideHeaderComponent } from './components/layout/side-header/side-header.component';
 import { TopHeaderComponent } from './components/layout/top-header/top-header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -24,8 +22,6 @@ import { SlideComponent } from './components/layout/slide/slide.component';
     WatchVideoComponent,
     InformationsComponent,
     CategoriesComponent,
-    SearchPageComponent,
-    SearchComponent,
     SideHeaderComponent,
     TopHeaderComponent,
     CategoriesMenuComponent,

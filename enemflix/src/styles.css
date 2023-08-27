@@ -13,7 +13,8 @@ body {
 }
 
 iframe {
-  width: 95%;
+  width: 90vw;
+  max-width: 90vw;
   height: 80vh;
   border-radius: 10px;
   margin-top: 30px;

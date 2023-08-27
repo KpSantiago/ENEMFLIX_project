@@ -25,9 +25,7 @@ export class WatchVideoComponent implements OnInit {
     private router: Router,
     private ServiceVideos: videosService,
     private ServiceCategories: CategoriesService
-  ) {
-    this.getRelationedVideos();
-  }
+  ) {}
 
   ngOnInit(): void {
     const id = this.routes.snapshot.paramMap.get('i');
@@ -37,7 +35,7 @@ export class WatchVideoComponent implements OnInit {
     if (videoExists == null) {
       this.ServiceVideos.getVideo(id!).subscribe((data) => {
         const items = data.items;
-        this.titleVideo = items[0].snippet.title;
+        this.titleVideo = items[0].snippet.channelId;
 
         localStorage.setItem('video', JSON.stringify(items));
 
@@ -54,9 +52,11 @@ export class WatchVideoComponent implements OnInit {
       } else {
         this.ServiceVideos.getVideo(id!).subscribe((data) => {
           const items = data.items;
-          this.titleVideo = items[0].snippet.title;
+          this.titleVideo = items[0].snippet.channelId;
 
           localStorage.setItem('video', JSON.stringify(items));
+
+          console.log(data);
 
           this.video = items;
 
@@ -66,44 +66,8 @@ export class WatchVideoComponent implements OnInit {
     }
   }
 
-  getRelationedVideos() {
-    // RELACIONADOS AO VÍDEO
-    const relationedVideosExists = JSON.parse(
-      localStorage.getItem('relationedVideos') || 'null'
-    );
-
-    if (relationedVideosExists == null) {
-      this.ServiceCategories.getVideosCategories(this.titleVideo!).subscribe(
-        (data) => {
-          const items = data.items;
-
-          items.map((data) => {
-            data.snippet.publishedAt = new Date(
-              data.snippet.publishedAt
-            ).toLocaleDateString();
-          });
-
-          localStorage.setItem('relationedVideos', JSON.stringify(items));
-
-          this.relationedVideos = items;
-        }
-      );
-    } else {
-      this.relationedVideos = relationedVideosExists;
-    }
-  }
-
   async watchVideo(id: string) {
-    const relationedVideoExists = JSON.parse(
-      localStorage.getItem('relationedVideos') || 'null'
-    );
-
     await this.router.navigate([`watch/${id}`]);
     location.reload();
-    if (relationedVideoExists == null) {
-      this.getRelationedVideos();
-    } else {
-      this.relationedVideos = relationedVideoExists;
-    }
   }
 }

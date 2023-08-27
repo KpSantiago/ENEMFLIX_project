@@ -16,14 +16,6 @@ export class TopHeaderComponent implements OnInit {
     this.search = new FormGroup({
       query: new FormControl(''),
     });
-
-    const searchedVideos = JSON.parse(
-      localStorage.getItem('searchedVideos') || 'null'
-    );
-
-    if (searchedVideos != null) {
-      localStorage.setItem('searchedVideos', JSON.stringify(null));
-    }
   }
 
   searchVideos(): void {

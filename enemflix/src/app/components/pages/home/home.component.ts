@@ -4,7 +4,6 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
-  QueryList,
 } from '@angular/core';
 import { Router } from '@angular/router';
 

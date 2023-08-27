@@ -18,9 +18,8 @@ export class CategoriesService {
   constructor(private http: HttpClient) {}
 
   getVideosCategories(query: string): Observable<Response<Categories[]>> {
-    const url = `${this.baseApiUrl}?${this.queries}&q=${query} Enem vestibular`;
+    const url = `${this.baseApiUrl}?${this.queries}&q=${query} Enem videos`;
 
-    
-    return this.http.get<Response<Categories[]>>(url);  
+    return this.http.get<Response<Categories[]>>(url);
   }
 }

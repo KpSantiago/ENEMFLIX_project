@@ -15,16 +15,4 @@
       <li><a (click)="redirect('informations')">Informações</a></li>
     </ul>
   </nav>
-  <div class="search-box">
-    <form
-      class="search-container"
-      (submit)="searchVideos()"
-      [formGroup]="search"
-    >
-      <input type="search" formControlName="query" placeholder="Buscar..." />
-      <button type="submit" class="searchButton">
-        <img src="../../../../assets/searchIcon.svg" alt="search" />
-      </button>
-    </form>
-  </div>
 </header>

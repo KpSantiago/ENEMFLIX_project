@@ -2,13 +2,10 @@
   width: fit-content;
 }
 .wacthVideoContainer {
-  width: 100%;
-  max-width: 100%;
+  width: 95%;
+  max-width: 95%;
+  margin: 0 auto;
   padding: 60px 15px;
-  display: flex;
-  justify-content: space-between;
-  gap: 60px;
-  column-gap: 30px;
   color: #fff;
 }
 
@@ -25,125 +22,16 @@
 .videoContainer .description {
   background-color: rgb(30, 30, 30);
   font-size: 16.5px;
-  width: 100%;
+  width: 95%;
   padding: 15px;
   margin-top: 30px;
   border-radius: 10px;
   line-height: 25px;
 }
 
-.relationedVideos {
-  width: fit-content;
-  margin-right: 30px;
-  gap: 30px;
-}
-
-.relationedVideos .video .thumb img {
-  width: 250px;
-  clip-path: polygon(0 13%, 100% 13%, 100% 87%, 0% 87%);
-}
-
-.video {
-  position: relative;
-}
-
-.container {
-  color: #fff;
-}
-
-.container .title {
-  background-color: #0009;
-  width: 250px;
-  height: 74%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: absolute;
-  left: 0px;
-  bottom: 14%;
-  padding: 5px;
-}
-
-.container .title div {
-  max-width: 250px;
-  white-space: nowrap;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-}
-
-.title strong + span {
-  margin-left: 15px;
-}
-
-.title div:first-child {
-  display: flex;
-  justify-content: space-between;
-}
-
-.title div:first-child strong {
-  width: 50%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.nothingResponse {
-  width: 250px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin: 30px 0;
-}
-
-.nothingResponse .videoCont {
-  background-color: #a9a9a9;
-  height: 187px;
-  width: 300px;
-  border-radius: 10px;
-}
-
-.videoCont {
-  color: #000;
-  font-weight: 700;
-  display: grid;
-  place-items: center;
-  font-size: 1.6rem;
-}
-
-.nothingVideo {
-  background-color: #a9a9a9;
-  width: 75vw;
-  height: 80vh;
-  border-radius: 10px;
-  margin: 30px;
-}
-
 @media (max-width: 979px) {
   .wacthVideoContainer {
     flex-direction: column;
     align-items: center;
-  }
-
-  .nothingVideo {
-    width: 90vw;
-  }
-
-  .relationedVideos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 726px) {
-  .nothingVideo {
-    height: 55vh;
-  }
-}
-
-@media (max-width: 400px) {
-  .nothingVideo {
-    height: 35vh;
   }
 }
