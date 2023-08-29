@@ -38,6 +38,7 @@
   text-decoration: none;
   color: #fff;
   transition: color 0.2s;
+  cursor: pointer;
 }
 
 .subjects li:hover a {
